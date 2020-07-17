@@ -30,6 +30,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
 
 gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.5'
 gem 'hirb', '~> 0.7.3'
+gem 'devise'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

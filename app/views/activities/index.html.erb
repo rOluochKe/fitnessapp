@@ -1,0 +1,40 @@
+<div class="container mt-4">
+  <div class="row">
+    <div class="offset-md-1 col-md-10">
+      <h1 class="text-center">All Activities</h1>
+        <div class="card bg-light">
+          <div class="card-body">
+            <table class="table table-striped">
+              <thead class="thead-dark">
+                <tr>
+                  <th scope="col">Date</th>
+                  <th scope="col">Activity Name</th>
+                  <th scope="col">Duration</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <% @activities.each do |activity| %>
+                  <tr>
+                    <td><%= link_to activity.date, activity %></td>
+                    <td><%= link_to activity.name, activity %></td>
+                    <td><%= link_to activity.duration, activity %></td>
+                    <td>
+                      <% if activity.user == current_user %>
+                        <%= link_to 'Edit', edit_activity_path(post) %>
+                      <% end %>
+                    </td>
+                    <td>
+                      <% if activity.user == current_user %>
+                        <%= link_to 'Destroy', activity, method: :delete, data: { confirm: 'Are you sure?' } %>
+                      <% end %>
+                    </td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>

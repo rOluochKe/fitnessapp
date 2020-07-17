@@ -1,16 +1,27 @@
 <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="#">Be Fit Center</a>
+        <%= link_to root_path, class: "navbar-brand" do %>
+          <i class="fa fa-cogs"></i>
+          Be Fit Center
+        <% end %>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ml-auto mr-2">
-          <li class="nav-item"><%= link_to "Welcome", '#', class: "nav-link"  %></li>
+          <li class="nav-item"><%= link_to "Welcome", root_path, class: "nav-link"  %></li>
+          <% if user_signed_in? %>
+            <li class="nav-item"><%= link_to "Create Activity", new_activity_path, class: "nav-link" %></li>
+            <li class="nav-item"><%= link_to "My Account", edit_user_registration_path, class: "nav-link" %></li>
+          <% end %>
         </ul>
         <div class="nav navbar-nav navbar-right">
-          <li class="nav-item"><%= link_to "Register", '#', class: "nav-link" %></li>
-          <li class="nav-item"><%= link_to "Login", '#', class: "nav-link" %></li>
+          <% if user_signed_in? %>
+            <%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "btn btn-light navbar-btn" %>
+          <% else %>
+            <%= link_to "Register", new_user_registration_path, class: "btn btn-outline-secondary mr-2" %>
+            <%= link_to "Log In", new_user_session_path, class: "btn btn-outline-secondary" %>
+          <% end %>
         </div>
       </div>
     </nav>
