@@ -1,15 +1,13 @@
 <!DOCTYPE html>
-<html>
+<html class="h-100">
   <head>
-    <title>Fitnessapp</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <title>Fitness App</title>
+    <%= render 'layouts/rails_default' %>
   </head>
 
-  <body>
+  <body class="d-flex flex-column h-100">
+    <%= render 'layouts/header' %>
     <%= yield %>
+    <%= render 'layouts/footer' %>
   </body>
 </html>
