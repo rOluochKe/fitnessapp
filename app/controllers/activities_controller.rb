@@ -11,33 +11,42 @@ class ActivitiesController < ApplicationController
   end
 
   def create
-    @activity = Activity.new(activity_params)
+    # @activity = Activity.new(activity_params)
+    # if @activity.save
+    #   flash[:success] = 'You have created your activity!'
+    #   redirect_to activities_path(@activity.id)
+    # else
+    #   render :new
+    # end
+
+    @activity = current_user.activities.build(activity_params)
     if @activity.save
-      flash[:success] = "You have successfully created activity!!"
-      redirect_to @activity
+      flash[:success] = 'You have created your activity!'
+      redirect_to activities_path(@activity.id)
     else
+      flash[:error] = 'You have an error, please try again!'
       render 'new'
     end
   end
 
   def edit
-    @user = User.find( params[:user_id] )
+    @user = User.find(params[:user_id])
     @activity = @user.activity
   end
 
   def update
-    @user = User.find( params[:user_id] )
+    @user = User.find(params[:user_id])
     @activity = @user.activity
     if @activity.update_attributes(activity_params)
-      flash[:success] = "You have updated your activity!"
-      redirect_to activity_path(id: params[:user_id] )
+      flash[:success] = 'You have updated your activity!'
+      redirect_to activity_path(id: params[:user_id])
     else
       render action: :edit
     end
   end
 
   def show
-
+    @activity = Activity.find(params[:id])
   end
 
   def destroy
@@ -46,7 +55,7 @@ class ActivitiesController < ApplicationController
 
     @activity.destroy
     flash[:success] = 'You have deleted your activity!'
-    redirect_to user_path(id: params[:user_id] ) 
+    redirect_to user_path(id: params[:user_id]) 
   end
 
   private

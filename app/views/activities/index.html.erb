@@ -10,23 +10,25 @@
                   <th scope="col">Date</th>
                   <th scope="col">Activity Name</th>
                   <th scope="col">Duration</th>
+                  <th scope="col">Edit</th>
+                  <th scope="col">Delete</th>
                 </tr>
               </thead>
 
               <tbody>
                 <% @activities.each do |activity| %>
                   <tr>
-                    <td><%= link_to activity.date, activity %></td>
+                    <td><%= link_to activity.date.strftime("%d-%m-%Y"), activity %></td>
                     <td><%= link_to activity.name, activity %></td>
                     <td><%= link_to activity.duration, activity %></td>
                     <td>
                       <% if activity.user == current_user %>
-                        <%= link_to 'Edit', edit_activity_path(post) %>
+                        <%= link_to '<i class="fa fa-pencil-square-o go-center"></i>'.html_safe, edit_activity_path(activity) %>
                       <% end %>
                     </td>
                     <td>
                       <% if activity.user == current_user %>
-                        <%= link_to 'Destroy', activity, method: :delete, data: { confirm: 'Are you sure?' } %>
+                        <%= link_to ('<i class="fa fa-trash-o go-center"></i>').html_safe, activity, :method=> :delete, data: { confirm: 'Are you sure?' } %>
                       <% end %>
                     </td>
                   </tr>

@@ -1,4 +1,4 @@
-<div class="container flash-container mt-3">
+<div class="container-fluid flash-container mt-3">
   <% flash.each do |type, msg| %>
     <%= content_tag :div, msg, class: "alert alert-#{type}" %>
   <% end %>
