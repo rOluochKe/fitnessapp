@@ -1,9 +1,8 @@
 class ActivitiesController < ApplicationController
   before_action :authenticate_user!
-  # before_action :only_current_user
 
   def index
-    @activities = Activity.all
+    @activities = current_user.activities.all.order(created_at: :desc)
   end
 
   def new
@@ -11,37 +10,26 @@ class ActivitiesController < ApplicationController
   end
 
   def create
-    # @activity = Activity.new(activity_params)
-    # if @activity.save
-    #   flash[:success] = 'You have created your activity!'
-    #   redirect_to activities_path(@activity.id)
-    # else
-    #   render :new
-    # end
-
-    @activity = current_user.activities.build(activity_params)
+    @activity = current_user.activities.new(activity_params)
     if @activity.save
-      flash[:success] = 'You have created your activity!'
-      redirect_to activities_path(@activity.id)
+      flash[:success] = 'Your activity was successfully added!'
+      redirect_to @activity
     else
-      flash[:error] = 'You have an error, please try again!'
-      render 'new'
+      render :new
     end
   end
 
   def edit
-    @user = User.find(params[:user_id])
-    @activity = @user.activity
+    @activity = Activity.find(params[:id])
   end
 
   def update
-    @user = User.find(params[:user_id])
-    @activity = @user.activity
-    if @activity.update_attributes(activity_params)
-      flash[:success] = 'You have updated your activity!'
-      redirect_to activity_path(id: params[:user_id])
+    @activity = Activity.find_by(id: params[:id])
+    if @activity.update(activity_params)
+      flash[:success] = 'Post successfully edited'
+      redirect_to activities_path
     else
-      render action: :edit
+      render :edit
     end
   end
 
@@ -51,20 +39,15 @@ class ActivitiesController < ApplicationController
 
   def destroy
     @activity = Activity.find(params[:id])
-    return unless current_user.id == @article.user_id
+    return unless current_user.id == @activity.user_id
 
     @activity.destroy
-    flash[:success] = 'You have deleted your activity!'
-    redirect_to user_path(id: params[:user_id]) 
+    flash[:success] = 'Activity deleted successfully!'
+    redirect_back(fallback_location: root_path)
   end
 
   private
-    def activity_params
-      params.require(:activity).permit(:name, :date, :duration)
-    end
-
-    # def only_current_user
-    #   @user = User.find( params[:user_id] )
-    #   redirect_to(root_url) unless @user == current_user
-    # end
+  def activity_params
+    params.require(:activity).permit(:name, :date, :duration)
+  end
 end
