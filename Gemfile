@@ -37,13 +37,8 @@ group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'factory_bot'
   gem 'guard-rspec'
+  gem 'rails-controller-testing'
   gem 'rspec-rails', '~> 4.0.1'
-  gem 'spring-commands-rspec'
-  gem 'vcr'
-end
-
-group :test do
-  gem 'webmock'
 end
 
 group :development do
