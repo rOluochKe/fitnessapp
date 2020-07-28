@@ -1,5 +1,5 @@
 class StaticPagesController < ApplicationController
-  def home
-    @activities = Activity.all
-  end
+  def home; end
+
+  def about; end
 end

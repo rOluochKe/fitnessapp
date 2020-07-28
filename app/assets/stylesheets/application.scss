@@ -39,7 +39,7 @@ code {
 }
 
 .fas, .fast-me {
-  font-size: 112px;
+  font-size: 117px;
   text-align: center;
   margin: 15px;
   color: skyblue;
@@ -49,4 +49,10 @@ code {
   border: 1px solid #000 !important;
   background-color: #28a745 !important;
   color: #fff !important;
+}
+
+ul.bd-footer-links {
+  display: flex;
+  list-style: none;
+  margin-left: -50px;
 }

@@ -1,0 +1,18 @@
+<div class="container-fluid">
+  <div class="row mt-5">
+    <div class="offset-md-1 col-md-10">
+      <div class="jumbotron">
+        <h1 class="display-4">About Us</h1>
+        <p class="lead">Move and Groove is a fitness application that allows users to sign up and log activities of different kinds. The app displays activity data from the user, based on various metrics such as steps taken or calories burned. For example: Distance walked with exercise intensity divided by distance run during 10 minutes in time (based off average walking speed).</p>
+
+        <p class="lead">The apps tracks your progress using Google Fit's Activity Profiles. There are four levels which include Fitness, Speed, Goal Setting & Motivation categories; if you don't find one right for something you'll be able to select another set via quick search feature.</p>
+
+        <% if user_signed_in? %>
+          <%= link_to "Create Activity", new_activity_path, class: "btn btn-success btn-lg mt-4" %>
+        <% else %>
+          <%= link_to "Create Account", new_user_registration_path, class: "btn btn-primary btn-lg mt-4" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
