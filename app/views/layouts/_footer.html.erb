@@ -1,0 +1,15 @@
+<footer class="footer mt-auto">
+  <div class="container-fluid">
+    <ul class="bd-footer-links mt-2">
+      <li><%= link_to "Copyriight 2020. All rights reseved. Move and Groove.", root_path, class: "nav-link  text-muted mr-3" %></li>
+      <li class="screen-size"><%= link_to "Home", root_path, class: "nav-link color-change" %></li>
+      <li class="screen-size"><%= link_to "About Us", about_us_path, class: "nav-link color-change mr-2" %></li>
+      <% if user_signed_in? %>
+        <li class="screen-size"><%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "btn btn-outline-secondary navbar-btn" %></li>
+      <% else %>
+        <li class="screen-size"><%= link_to "Register", new_user_registration_path, class: "btn btn-outline-secondary mr-2" %></li>
+        <li class="screen-size"><%= link_to "Log In", new_user_session_path, class: "btn btn-outline-secondary" %></li>
+      <% end %>
+    </ul>
+  </div>
+</footer>

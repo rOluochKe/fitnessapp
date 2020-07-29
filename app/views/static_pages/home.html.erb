@@ -1,0 +1,68 @@
+<div class="container-fluid">
+  <div class="row mt-3">
+    <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+      <div class="jumbotron">
+        <h1 class="display-5">Keep fit and healthy</h1>
+        <p class="lead mt-3">Move and Groove is a fitness application that allows users to sign up and log activities of different kinds. The app displays activity data from the user, based on various metrics such as steps taken or calories burned. For example: Distance walked with exercise intensity divided by distance run during 10 minutes in time (based off average walking speed).</p>
+
+        <p class="lead">The apps tracks your progress using Google Fit's Activity Profiles. There are four levels which include Fitness, Speed, Goal Setting & Motivation categories; if you don't find one right for something you'll be able to select another set via quick search feature.</p>
+
+        <% if user_signed_in? %>
+          <%= link_to "Create Activity", new_activity_path, class: "btn btn-success btn-lg mt-4" %>
+        <% else %>
+          <%= link_to "Create Account", new_user_registration_path, class: "btn btn-success btn-lg mt-3" %>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+      <div class="row">
+        <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+          <div class="card" style="width: 100%">
+            <i class="fas fa-running"></i>
+            <h5 class="text-center">Running</h5>
+          </div>
+        </div>
+
+        <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 space-me">
+          <div class="card" style="width: 100%">
+            <i class="fas fa-walking"></i>
+            <h5 class="text-center">Walking</h5>
+          </div>
+        </div>
+      </div>
+
+      <div class="row mt-4">
+        <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+          <div class="card" style="width: 100%">
+            <i class="fas fa-biking"></i>
+            <h5 class="text-center">Cycling</h5>
+          </div>
+        </div>
+
+        <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 space-me">
+          <div class="card" style="width: 100%">
+            <i class="fas fa-swimmer"></i>
+            <h5 class="text-center">Swimming</h5>
+          </div>
+        </div>
+      </div>
+
+      <div class="row mt-4">
+        <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+          <div class="card" style="width: 100%">
+            <i class="fas fa-skating"></i>
+            <h5 class="text-center">Skating</h5>
+          </div>
+        </div>
+
+        <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 mb-4 space-me">
+          <div class="card" style="width: 100%">
+            <i class="fas fa-dumbbell"></i>
+            <h5 class="text-center">Strength Training</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

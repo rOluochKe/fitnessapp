@@ -1,0 +1,17 @@
+<%= form_for @activity do |f| %>
+  <div class="form-group">
+    <%= f.label :date %>
+    <%= f.date_field :date, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :name %>
+    <%= f.select :name, ['Running', 'Walking', 'Cycling', 'Swimming', 'Elliptical', 'Strength Training', 'Circuit Training', 'Core Strength', 'Arc Training', 'Rowing', 'Hiking', 'Mountain Biking', 'Skating', 'Nordic Walking', 'XC Skiing', 'Downhill Skiing', 'Snow Boarding', 'Wheelchair'], {}, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :duration %>
+    <%= f.number_field :duration, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.submit "Submit Activity", class: 'btn btn-primary' %>
+  </div>
+<% end %>
