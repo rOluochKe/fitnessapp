@@ -1,13 +1,13 @@
 <header>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light diff-color">
       <%= link_to root_path, class: "navbar-brand" do %>
         <i class="fa fa-cogs"></i> Move and Groove
       <% end %>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ml-auto mr-2">
           <li class="nav-item"><%= link_to "Home", root_path, class: "nav-link"  %></li>
           <li class="nav-item"><%= link_to "About Us", about_us_path, class: "nav-link"  %></li>
@@ -19,10 +19,10 @@
         </ul>
         <div class="nav navbar-nav navbar-right">
           <% if user_signed_in? %>
-            <%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "btn btn-outline-secondary navbar-btn" %>
+            <%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "btn btn-outline-secondary navbar-btn log-out" %>
           <% else %>
-            <%= link_to "Register", new_user_registration_path, class: "btn btn-outline-secondary mr-2" %>
-            <%= link_to "Log In", new_user_session_path, class: "btn btn-outline-secondary" %>
+            <%= link_to "Register", new_user_registration_path, class: "btn btn-outline-secondary mr-2 log-out" %>&nbsp;
+            <%= link_to "Log In", new_user_session_path, class: "btn btn-outline-secondary log-out" %>
           <% end %>
         </div>
       </div>

@@ -10,7 +10,6 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require bootstrap
  *= require_tree .
  *= require_self
  */
@@ -22,7 +21,7 @@
 }
 
 .footer {
-  background-color: #f5f5f5;
+  background-color: #d6d5d5;
 }
 
 .footer > .container {
@@ -39,10 +38,10 @@ code {
 }
 
 .fas, .fast-me {
-  font-size: 117px;
+  font-size: 107px;
   text-align: center;
   margin: 15px;
-  color: skyblue;
+  color: #46a745;
 }
 
 .alert {
@@ -55,4 +54,70 @@ ul.bd-footer-links {
   display: flex;
   list-style: none;
   margin-left: -50px;
+  padding-top: 5px;
+}
+
+.navbar-light .navbar-nav .nav-link {
+  color: #fff;
+}
+
+.navbar-light .navbar-nav .nav-link:hover,
+.navbar-light .navbar-nav .nav-link:active,
+.navbar-light .navbar-nav .nav-link:focus {
+  color: #fff;
+  border-bottom: 1px solid #fff;
+}
+
+.navbar-light .navbar-brand {
+  color: #fff;
+  font-weight: bold;
+}
+
+.navbar-light .navbar-brand:hover {
+  color: #fff;
+  font-weight: bold;
+}
+
+.log-out {
+  color: #ffff;
+  border-color: #fff;
+}
+
+.color-change {
+  color: #565656;
+}
+
+.color-change:hover {
+  color: #565656;
+  border-bottom: 1px solid #46a745;
+}
+
+nav.navbar.navbar-expand-lg.navbar-light.bg-light.diff-color {
+  background-color: #46a745 !important;
+}
+
+.navbar-light .navbar-nav .nav-link {
+  color: #fff !important;
+}
+
+.navbar-light .navbar-brand {
+  color: #fff !important;
+  font-weight: bold;
+}
+
+.btn-outline-secondary {
+  color: #fff !important;
+  border-color: #fff !important;
+}
+
+@media screen and (max-width: 795px) {
+  li.screen-size {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .space-me {
+    margin-top: 25px;
+  }
 }

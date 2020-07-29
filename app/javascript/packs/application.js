@@ -16,3 +16,6 @@ require("channels")
 // const imagePath = (name) => images(name, true)
 
 require("custom/pages")
+import 'bootstrap'
+import './src/application.scss'
+
