@@ -1,0 +1,20 @@
+<div class="container mt-4">
+  <div class="row">
+    <div class="offset-md-2 col-md-8">
+      <h1 class="text-center">All Users</h1>
+        <ul class="list-unstyled">
+          <% @users.each do |user| %>
+          <li class="mb-2">
+              <div class="card bg-light mt-3">
+                <div class="card-body">
+                  <%= link_to user do %>
+                    <h5><%= user.email %></h5>
+                  <% end %>
+                </div>
+              </div>
+          </li>
+          <% end %>
+        </ul>
+    </div>
+  </div>
+</div>
