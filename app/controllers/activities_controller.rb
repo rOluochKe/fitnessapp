@@ -1,5 +1,6 @@
 class ActivitiesController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_activity_params, only: %i[show edit update destroy]
 
   def index
     @activities = current_user.activities.all.order(created_at: :desc)
@@ -50,5 +51,9 @@ class ActivitiesController < ApplicationController
 
   def activity_params
     params.require(:activity).permit(:name, :date, :duration)
+  end
+
+  def set_activity_params
+    @activity = Activity.find(params[:id])
   end
 end

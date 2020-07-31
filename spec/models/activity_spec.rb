@@ -1,6 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe Activity, type: :model do
+  describe 'association with User' do
+    it { should belong_to(:user) }
+  end
+
   context 'validations tests' do
     it 'ensures the name is present' do
       activity = Activity.new(name: 'Running')
